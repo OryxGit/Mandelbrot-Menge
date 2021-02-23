@@ -126,7 +126,8 @@ public class Complex {
         else if (w.abs == 0)
             return new Complex(1, 0);
         else
-            return Polar(z.arg * w.Re + Math.log(z.abs) * w.Im, Math.pow(z.abs, w.Re) * Math.pow(Math.E, -z.arg * w.Im));
+            return Polar(z.arg * w.Re + Math.log(z.abs) * w.Im,
+                    Math.pow(z.abs, w.Re) * Math.pow(Math.E, -z.arg * w.Im));
     }
 
     //Power of Complex and Real Numbers
@@ -148,10 +149,10 @@ public class Complex {
             return new Complex(0, 0);
         else if (w.abs == 0)
             return new Complex(1, 0);
-        else if(z > 0)
-            return Polar(Math.log(z)*w.Im, Math.pow(z, w.Re));
+        else if (z > 0)
+            return Polar(Math.log(z) * w.Im, Math.pow(z, w.Re));
         else
-            return Polar(Math.log(-z)*w.Im,Math.pow(z, w.Re)*Math.pow(Math.E, -Math.PI*w.Im));
+            return Polar(Math.log(-z) * w.Im, Math.pow(z, w.Re) * Math.pow(Math.E, -Math.PI * w.Im));
     }
 
     //Power of Real Numbers
@@ -174,7 +175,7 @@ public class Complex {
 
     //Checks if two Complex Numbers are equal
     public static boolean equlas(Complex z, Complex w) {
-        if(z.Re == w.Re && z.Im == w.Im)
+        if (z.Re == w.Re && z.Im == w.Im)
             return true;
         else
             return false;
@@ -182,23 +183,25 @@ public class Complex {
 
     //Object-Methods
     public boolean equals(Complex z) {
-        if(Re == z.Re && Im == z.Im)
+        if (Re == z.Re && Im == z.Im)
             return true;
         else
             return false;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder toString = new StringBuilder();
-        toString.append("Re: ");
+        toString.append("Cartesian: ");
         toString.append(Re);
-        toString.append(" Im: ");
+        toString.append("+");
         toString.append(Im);
-        toString.append(" Arg: ");
-        toString.append(arg);
-        toString.append(" Abs: ");
+        toString.append("i");
+        toString.append(" Polar: ");
         toString.append(abs);
+        toString.append("e^(");
+        toString.append(arg);
+        toString.append(")");
         return toString.toString();
     }
 
