@@ -12,8 +12,8 @@ public class Complex {
     public Complex(double re, double im) {
         Re = re;
         Im = im;
-        if(Im < 0)
-            arg = Math.atan2(im, re) + 2*Math.PI;
+        if (Im < 0)
+            arg = Math.atan2(im, re) + 2 * Math.PI;
         else
             arg = Math.atan2(im, re);
         abs = Math.sqrt(Re * Re + Im * Im);
@@ -22,7 +22,7 @@ public class Complex {
     //Static-Methods
     //creates new Complex number from Polar Coordinates
     public static Complex Polar(double arg, double abs) {
-        return new Complex(abs*Math.cos(arg), abs*Math.sin(arg));
+        return new Complex(abs * Math.cos(arg), abs * Math.sin(arg));
     }
 
     //Arithmetics
@@ -33,7 +33,7 @@ public class Complex {
         return new Complex(z.Re + w.Re, z.Im + w.Im);
     }
 
-    //Addition of Complex and real Numbers
+    //Addition of Complex and Real Numbers
     public static Complex add(Complex z, double w) {
         return new Complex(z.Re + w, z.Im);
     }
@@ -47,27 +47,73 @@ public class Complex {
         return new Complex(z + w, 0);
     }
 
-    //Subtraction of Complex Numbers
     //Format: z-w
+    //Subtraction of Complex Numbers
     public static Complex sub(Complex z, Complex w) {
-        Complex x = new Complex(-w.Re, -w.Im);
-        return new Complex(z.Re + x.Re, z.Im + x.Im);
+        return new Complex(z.Re - w.Re, z.Im - w.Im);
+    }
+
+    //Subtraction of Complex and Real Numbers
+    public static Complex sub(Complex z, double w) {
+        return new Complex(z.Re - w, z.Im);
+    }
+
+    public static Complex sub(double z, Complex w) {
+        return new Complex(z - w.Re, -w.Im);
+    }
+
+    //Subtraction of Real Numbers
+    public static Complex sub(double z, double w) {
+        return new Complex(z - w, 0);
     }
 
     //Multiplication and Division are programmed using Polar Coordinates
-    //Multiplication of Complex Numbers
     //Format: z*w
+    //Multiplication of Complex Numbers
     public static Complex mul(Complex z, Complex w) {
         return Polar(z.arg + w.arg, z.abs * w.abs);
     }
 
-    //Division of Complex Numbers
+    //Multiplication of Complex and Real Numbers
+    public static Complex mul(Complex z, double w) {
+        return Polar(z.arg, z.abs * w);
+    }
+
+    public static Complex mul(double z, Complex w) {
+        return Polar(w.arg, z * w.abs);
+    }
+
+    //Multiplication of Real Numbers
+    public static Complex mul(double z, double w) {
+        return Polar(0, z * w);
+    }
+
     //Format: z/w
+    //Division of Complex Numbers
     public static Complex div(Complex z, Complex w) {
-        if (w.abs == 0) {
+        if (w.abs == 0)
             throw new ArithmeticException("Division by 0");
-        }
-        return Polar(z.arg-w.arg, z.abs/w.abs);
+        return Polar(z.arg - w.arg, z.abs / w.abs);
+    }
+
+    //Division of Complex and Real Numbers
+    public static Complex div(Complex z, double w) {
+        if (w == 0)
+            throw new ArithmeticException("Division by 0");
+        return Polar(z.arg, z.abs / w);
+    }
+
+    public static Complex div(double z, Complex w) {
+        if (w.abs == 0)
+            throw new ArithmeticException("Division by 0");
+        return Polar(-w.arg, z / w.abs);
+    }
+
+    //Division of Real Numbers
+    public static Complex div(double z, double w) {
+        if (w == 0)
+            throw new ArithmeticException("Division by 0");
+        return Polar(0, z / w);
     }
 
     //Power using Complex numbers (including complex Exponents)
