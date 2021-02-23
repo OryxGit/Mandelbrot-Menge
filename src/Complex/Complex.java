@@ -8,8 +8,7 @@ public class Complex {
     private double arg;
     private double delt;
 
-    //Initializes new Complex number with cartesian Coordinates re and im
-    //and calculates argument and distance from origin (absolute Value)
+    //Creates new Complex number from Cartesian coordinates
     public Complex(double re, double im) {
         Re = re;
         Im = im;
@@ -23,8 +22,10 @@ public class Complex {
     //Static-Methods
     //creates new Complex number from Polar coordinates
     public static Complex Polar(double arg, double delt) {
-        //TODO
-        return null;
+        Complex z = new Complex(delt*Math.cos(arg), delt*Math.sin(arg));
+        z.arg = arg;
+        z.delt = delt;
+        return z;
     }
 
     //Cartesian Arithmetic
