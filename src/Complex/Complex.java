@@ -12,32 +12,35 @@ public class Complex {
     public Complex(double re, double im) {
         Re = re;
         Im = im;
+        toPolar();
     }
 
     //Static-Methods
     //creates new Complex number from Polar coordinates
     public static Complex Polar(double arg, double delt) {
+        Complex z = toCartesian();
+    }
+
+    public static Complex toCartesian(){
         //TODO
         return null;
     }
 
-    public static Complex toPolar(Complex z) {
-        //TODO
-        return null;
-    }
-
-    public static Complex toCartesian(Complex z){
-        //TODO
-        return null;
-    }
-
-    public static Complex add(Complex z, Complex w) {
+    //Addition of Complex Numbers (Cartesian)
+    public static Complex addc(Complex z, Complex w) {
         //Complex a = toCartesian(z);
         //Complex b = toCartesian(w);
         return new Complex(z.Re + w.Re, z.Im + w.Im);
     }
 
-    public static Complex mul(Complex z, Complex w) {
+    //Subtraction of Complex Numbers (Cartesian)
+    public static Complex subc(Complex z, Complex w) {
+        Complex x = new Complex(-w.Re, -w.Im);
+        return new Complex(z.Re + x.Re, z.Im + x.Im);
+    }
+
+    //Multiplication of Complex Numbers (Cartesian)
+    public static Complex mulc(Complex z, Complex w) {
         //Complex a = toCartesian(z);
         //Complex b = toCartesian(w);
         return new Complex(z.Re*w.Re - z.Im*w.Im, z.Re*w.Im + z.Im*w.Re);
@@ -59,6 +62,11 @@ public class Complex {
     }
 
     //Object-Methods
+    //initializes Polar-Coordinates of Complex Object
+    public void toPolar() {
+        //TODO
+    }
+
     public double getRe() {
         return Re;
     }
