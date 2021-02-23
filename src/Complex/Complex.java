@@ -2,13 +2,13 @@ package Complex;
 
 public class Complex {
     //Complex/Algebraic Numbers
-    //Real and Imaginary part
+    //Real and Imaginary part, Argument and Absolute Value (Distance from Origin)
     private double Re;
     private double Im;
     private double arg;
-    private double delt;
+    private double abs;
 
-    //Creates new Complex number from Cartesian coordinates
+    //Creates new Complex number from Cartesian Coordinates
     public Complex(double re, double im) {
         Re = re;
         Im = im;
@@ -16,59 +16,75 @@ public class Complex {
             arg = Math.atan2(im, re) + 2*Math.PI;
         else
             arg = Math.atan2(im, re);
-        delt = Math.sqrt(Re * Re + Im * Im);
+        abs = Math.sqrt(Re * Re + Im * Im);
     }
 
     //Static-Methods
-    //creates new Complex number from Polar coordinates
-    public static Complex Polar(double arg, double delt) {
-        Complex z = new Complex(delt*Math.cos(arg), delt*Math.sin(arg));
-        z.arg = arg;
-        z.delt = delt;
-        return z;
+    //creates new Complex number from Polar Coordinates
+    public static Complex Polar(double arg, double abs) {
+        return new Complex(abs*Math.cos(arg), abs*Math.sin(arg));
     }
 
-    //Cartesian Arithmetic
+    //Arithmetics
+    //Addition and Subtraction are programmed using Cartesian Coordinates
+    //Format: z+w
     //Addition of Complex Numbers
-    public static Complex addc(Complex z, Complex w) {
+    public static Complex add(Complex z, Complex w) {
         return new Complex(z.Re + w.Re, z.Im + w.Im);
     }
 
+    //Addition of Complex and real Numbers
+    public static Complex add(Complex z, double w) {
+        return new Complex(z.Re + w, z.Im);
+    }
+
+    public static Complex add(double z, Complex w) {
+        return new Complex(z + w.Re, w.Im);
+    }
+
+    //Addition of Real Numbers
+    public static Complex add(double z, double w) {
+        return new Complex(z + w, 0);
+    }
+
     //Subtraction of Complex Numbers
-    public static Complex subc(Complex z, Complex w) {
+    //Format: z-w
+    public static Complex sub(Complex z, Complex w) {
         Complex x = new Complex(-w.Re, -w.Im);
         return new Complex(z.Re + x.Re, z.Im + x.Im);
     }
 
+    //Multiplication and Division are programmed using Polar Coordinates
     //Multiplication of Complex Numbers
-    public static Complex mulc(Complex z, Complex w) {
-        return new Complex(z.Re * w.Re - z.Im * w.Im, z.Re * w.Im + z.Im * w.Re);
+    //Format: z*w
+    public static Complex mul(Complex z, Complex w) {
+        return Polar(z.arg + w.arg, z.abs * w.abs);
     }
 
     //Division of Complex Numbers
-    public static Complex divc(Complex z, Complex w) {
-        if (w.Re == 0 && w.Im == 0) {
+    //Format: z/w
+    public static Complex div(Complex z, Complex w) {
+        if (w.abs == 0) {
             throw new ArithmeticException("Division by 0");
         }
-        double absw = abs(w);
-        Complex x = new Complex(w.Re / (absw * absw), -w.Im / (absw * absw));
-        return mulc(z, x);
-    }
-
-    //Complex-conjugate
-    public static Complex conjugatec(Complex z) {
-        return new Complex(z.Re, -z.Im);
+        return Polar(z.arg-w.arg, z.abs/w.abs);
     }
 
     //Power using Complex numbers (including complex Exponents)
+    //Format: z^w
     public static Complex pow(Complex z, Complex w) {
         //TODO
         return null;
     }
 
+    //Complex-conjugate
+    public static Complex conjugate(Complex z) {
+        return new Complex(z.Re, -z.Im);
+    }
+
     //Absolute Value
     public static double abs(Complex z) {
-        return z.delt;
+        return z.abs;
     }
 
     //Getter
@@ -84,7 +100,7 @@ public class Complex {
         return arg;
     }
 
-    public double getDelt() {
-        return delt;
+    public double getAbs() {
+        return abs;
     }
 }
