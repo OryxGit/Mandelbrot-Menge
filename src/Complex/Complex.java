@@ -172,6 +172,36 @@ public class Complex {
         return z.abs;
     }
 
+    //Checks if two Complex Numbers are equal
+    public static boolean equlas(Complex z, Complex w) {
+        if(z.Re == w.Re && z.Im == w.Im)
+            return true;
+        else
+            return false;
+    }
+
+    //Object-Methods
+    public boolean equals(Complex z) {
+        if(Re == z.Re && Im == z.Im)
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder toString = new StringBuilder();
+        toString.append("Re: ");
+        toString.append(Re);
+        toString.append(" Im: ");
+        toString.append(Im);
+        toString.append(" Arg: ");
+        toString.append(arg);
+        toString.append(" Abs: ");
+        toString.append(abs);
+        return toString.toString();
+    }
+
     //Getter
     public double getRe() {
         return Re;
