@@ -3,10 +3,10 @@ package Complex;
 public class Complex {
     //Complex/Algebraic Numbers
     //Real and Imaginary part, Argument and Absolute Value (Distance from Origin)
-    private double Re;
-    private double Im;
-    private double arg;
-    private double abs;
+    private final double Re;
+    private final double Im;
+    private final double arg;
+    private final double abs;
 
     //Creates new Complex number from Cartesian Coordinates
     public Complex(double re, double im) {
