@@ -175,18 +175,12 @@ public class Complex {
 
     //Checks if two Complex Numbers are equal
     public static boolean equlas(Complex z, Complex w) {
-        if (z.Re == w.Re && z.Im == w.Im)
-            return true;
-        else
-            return false;
+        return z.Re == w.Re && z.Im == w.Im;
     }
 
     //Object-Methods
     public boolean equals(Complex z) {
-        if (Re == z.Re && Im == z.Im)
-            return true;
-        else
-            return false;
+        return Re == z.Re && Im == z.Im;
     }
 
     @Override
