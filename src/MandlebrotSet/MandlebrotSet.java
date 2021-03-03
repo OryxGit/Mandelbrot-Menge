@@ -22,6 +22,7 @@ public class MandlebrotSet {
             }
         }
         new Frame(1920, 1080, points);
+
     }
 
     public static int converges(Complex c) {
