@@ -41,7 +41,6 @@ public class Frame extends JFrame {
         g.drawLine(-5, -195, 0, -200);
         g.drawLine(5, -195, 0, -200);
 
-
         for (Point p : pointList) {
             g.setColor(p.getColor());
             g.drawLine(p.getX(), -p.getY(), p.getX(), -p.getY());
