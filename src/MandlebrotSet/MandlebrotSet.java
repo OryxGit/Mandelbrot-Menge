@@ -15,9 +15,8 @@ public class MandlebrotSet {
     public static void main(String[] args) {
         for (int re = -200; re <= 200; re++) {
             for (int im = -200; im <= 200; im++) {
-                int conv = converges((new Complex(re/UNIT, im/UNIT)));
-                points.add(new Point(re, im, new Color(conv)));
-                System.out.println("Re: " + re/UNIT + "Im: " + im/UNIT + "Conv: " + conv);
+                int conv = converges((new Complex(re / UNIT, im / UNIT)));
+                points.add(new Point(re, im, new Color(conv, conv, conv)));
             }
         }
         Frame frame = new Frame(500, 500, points);
@@ -25,8 +24,8 @@ public class MandlebrotSet {
 
     public static int converges(Complex c) {
         Complex zn = c;
-        int steps = 256;
-        for (int i = 0; i < 256; i++) {
+        int steps = 255;
+        for (int i = 0; i < 255; i++) {
             zn = Complex.add(Complex.mul(zn, zn), c);
             if (zn.getAbs() >= 2) {
                 steps = i;
