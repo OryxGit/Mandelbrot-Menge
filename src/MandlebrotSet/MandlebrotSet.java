@@ -10,18 +10,18 @@ import GUI.Point;
 
 
 public class MandlebrotSet {
-    private static final double UNIT = 100;
+    private static final double UNIT = 420;
     private static ArrayList<Point> points = new ArrayList<>();
     private static int val = 256;
 
     public static void main(String[] args) {
-        for (int re = -200; re <= 200; re++) {
-            for (int im = -200; im <= 200; im++) {
+        for (int re = -1000; re <= 1000; re++) {
+            for (int im = -1000; im <= 1000; im++) {
                 int conv = converges((new Complex(re / UNIT, im / UNIT)));
                 points.add(new Point(re, im, new Color((val - conv) % 255, (val - conv) % 255, (val - conv) % 255)));
             }
         }
-        Frame frame = new Frame(500, 500, points);
+        new Frame(1920, 1080, points);
     }
 
     public static int converges(Complex c) {
