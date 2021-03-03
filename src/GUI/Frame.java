@@ -42,15 +42,15 @@ public class Frame extends JFrame {
         g.drawLine(-5, 100, 5, 100);
         g.drawLine(-5, -100, 5, -100);
         //arrows
-        g.drawLine(195, 5, 200 , 0);
-        g.drawLine(195, -5, 200 , 0);
-        g.drawLine(-5, -195, 0 , -200);
-        g.drawLine(5, -195, 0 , -200);
+        g.drawLine(195, 5, 200, 0);
+        g.drawLine(195, -5, 200, 0);
+        g.drawLine(-5, -195, 0, -200);
+        g.drawLine(5, -195, 0, -200);
 
 
-        for (Point p : pointList){
-            g.setColor(p.color);
-            g.drawLine(p.x,-p.y,p.x,-p.y);
+        for (Point p : pointList) {
+            g.setColor(p.getColor());
+            g.drawLine(p.getX(), -p.getY(), p.getX(), -p.getY());
         }
     }
 
