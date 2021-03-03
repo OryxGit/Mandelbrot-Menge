@@ -2,6 +2,7 @@ package MandlebrotSet;
 
 import java.awt.*;
 import java.util.ArrayList;
+
 import Complex.Complex;
 import GUI.Frame;
 import GUI.Point;
