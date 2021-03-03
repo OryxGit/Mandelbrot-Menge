@@ -20,10 +20,6 @@ public class Frame extends JFrame {
         this.add(panel);
     }
 
-    public void addPoint(int x, int y, Color color) {
-        pointList.add(new Point(x, y, color));
-    }
-
     @Override
     public void paint(Graphics g) {
         super.paint(g);
