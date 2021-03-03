@@ -50,7 +50,7 @@ public class Frame extends JFrame {
 
         for (Point p : pointList){
             g.setColor(p.color);
-            g.drawOval(p.x,-p.y,1,1);
+            g.drawLine(p.x,-p.y,p.x,-p.y);
         }
     }
 
