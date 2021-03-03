@@ -19,8 +19,6 @@ public class Frame extends JFrame {
     }
 
     //temp
-    int x, y;
-    Color color;
     ArrayList<Point> pointList = new ArrayList<Point>();
 
 
@@ -34,9 +32,22 @@ public class Frame extends JFrame {
         int startX = width / 2;
         int startY = height / 2;
         g.translate(startX, startY);
+        //coordinate axis
         g.setColor(Color.WHITE);
         g.drawLine(-200, 0, 200, 0);
         g.drawLine(0, 200, 0, -200);
+        //values
+        g.drawLine(100, 5, 100, -5);
+        g.drawLine(-100, 5, -100, -5);
+        g.drawLine(-5, 100, 5, 100);
+        g.drawLine(-5, -100, 5, -100);
+        //arrows
+        g.drawLine(195, 5, 200 , 0);
+        g.drawLine(195, -5, 200 , 0);
+        g.drawLine(-5, -195, 0 , -200);
+        g.drawLine(5, -195, 0 , -200);
+
+
         for (Point p : pointList){
             g.setColor(p.color);
             g.drawOval(p.x,-p.y,1,1);
