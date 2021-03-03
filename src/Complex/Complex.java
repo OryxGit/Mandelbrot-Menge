@@ -174,7 +174,7 @@ public class Complex {
     }
 
     //Checks if two Complex Numbers are equal
-    public static boolean equlas(Complex z, Complex w) {
+    public static boolean equals(Complex z, Complex w) {
         return z.Re == w.Re && z.Im == w.Im;
     }
 
@@ -197,6 +197,13 @@ public class Complex {
         toString.append(arg);
         toString.append(")");
         return toString.toString();
+    }
+
+    public double toDouble() {
+        if (Im != 0) {
+            throw new ArithmeticException("Can not convert a Complex Number to a real Number");
+        }
+        return abs;
     }
 
     //Getter
