@@ -8,11 +8,13 @@ public class Frame extends JFrame {
     JPanel panel = new JPanel();
     int width, height;
 
-    public Frame() {
-        this.setSize(500, 500);
+    public Frame(int width, int height) {
+        this.width = width;
+        this.height = height;
+        this.setSize(width, height);
         this.setVisible(true);
-        this.setBackground(Color.DARK_GRAY);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        panel.setBackground(Color.BLACK);
         this.add(panel);
     }
 
@@ -38,6 +40,21 @@ public class Frame extends JFrame {
         for (Point p : pointList){
             g.setColor(p.color);
             g.drawOval(p.x,-p.y,1,1);
+        }
+    }
+
+    public void paintMandel(int x, int y, Color color) {
+
+    }
+
+    private class Point {
+        private int x, y;
+        private Color color;
+
+        Point(int x, int y, Color color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
         }
     }
 }
