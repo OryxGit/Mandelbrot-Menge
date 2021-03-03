@@ -9,6 +9,7 @@ public class Frame extends JFrame {
     public Frame() {
         this.setSize(500, 500);
         this.setVisible(true);
+        this.setBackground(Color.DARK_GRAY);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.add(panel);
     }

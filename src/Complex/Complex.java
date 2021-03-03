@@ -71,7 +71,7 @@ public class Complex {
     //Format: z*w
     //Multiplication of Complex Numbers
     public static Complex mul(Complex z, Complex w) {
-        return Polar(z.arg + w.arg, z.abs * w.abs);
+        return Polar((z.arg + w.arg) % (2 * Math.PI), z.abs * w.abs);
     }
 
     //Multiplication of Complex and Real Numbers
@@ -93,7 +93,7 @@ public class Complex {
     public static Complex div(Complex z, Complex w) {
         if (w.abs == 0)
             throw new ArithmeticException("Division by 0!");
-        return Polar(z.arg - w.arg, z.abs / w.abs);
+        return Polar(((z.arg - w.arg) % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI), z.abs / w.abs);
     }
 
     //Division of Complex and Real Numbers
@@ -106,7 +106,7 @@ public class Complex {
     public static Complex div(double z, Complex w) {
         if (w.abs == 0)
             throw new ArithmeticException("Division by 0!");
-        return Polar(-w.arg, z / w.abs);
+        return Polar(((-w.arg) % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI), z / w.abs);
     }
 
     //Division of Real Numbers
@@ -126,7 +126,7 @@ public class Complex {
         else if (w.abs == 0)
             return new Complex(1, 0);
         else
-            return Polar(z.arg * w.Re + Math.log(z.abs) * w.Im,
+            return Polar(((z.arg * w.Re + Math.log(z.abs) * w.Im) % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI),
                     Math.pow(z.abs, w.Re) * Math.pow(Math.E, -z.arg * w.Im));
     }
 
@@ -139,7 +139,8 @@ public class Complex {
         else if (w == 0)
             return new Complex(1, 0);
         else
-            return Polar(z.arg * w, Math.pow(z.abs, w));
+            return Polar(((z.arg * w + 2 * Math.PI) % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI),
+                    Math.pow(z.abs, w));
     }
 
     public static Complex pow(double z, Complex w) {
@@ -150,9 +151,11 @@ public class Complex {
         else if (w.abs == 0)
             return new Complex(1, 0);
         else if (z > 0)
-            return Polar(Math.log(z) * w.Im, Math.pow(z, w.Re));
+            return Polar((Math.log(z) * w.Im % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI),
+                    Math.pow(z, w.Re));
         else
-            return Polar(Math.log(-z) * w.Im, Math.pow(z, w.Re) * Math.pow(Math.E, -Math.PI * w.Im));
+            return Polar((Math.log(-z) * w.Im % (2 * Math.PI) + (2 * Math.PI)) % (2 * Math.PI),
+                    Math.pow(z, w.Re) * Math.pow(Math.E, -Math.PI * w.Im));
     }
 
     //Power of Real Numbers
