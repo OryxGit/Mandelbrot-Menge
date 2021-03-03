@@ -51,11 +51,4 @@ public class Frame extends JFrame {
             g.drawLine(p.getX(), -p.getY(), p.getX(), -p.getY());
         }
     }
-
-
-    public void paintMandel(int x, int y, Color color) {
-
-    }
-
-
 }
