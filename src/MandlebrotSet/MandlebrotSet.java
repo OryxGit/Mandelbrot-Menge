@@ -19,38 +19,38 @@ public class MandlebrotSet {
         for (int re = -1000; re <= 1000; re++) {
             for (int im = -1000; im <= 1000; im++) {
                 int conv = converges((new Complex(re / UNIT, im / UNIT)));
-                if (conv < 16)
+                if (conv < 2)
                     points.add(new Point(re, im, Color.decode("#000000")));
-                else if (conv < 32)
-                    points.add(new Point(re, im, Color.decode("#F23A89")));
-                else if (conv < 48)
-                    points.add(new Point(re, im, Color.decode("#B42CF2")));
-                else if (conv < 64)
-                    points.add(new Point(re, im, Color.decode("#3A3FF2")));
-                else if( conv < 80)
-                    points.add(new Point(re, im, Color.decode("#6461FF")));
+                else if (conv < 6)
+                    points.add(new Point(re, im, Color.decode("#001713")));
+                else if (conv < 12)
+                    points.add(new Point(re, im, Color.decode("#001c17")));
+                else if (conv < 24)
+                    points.add(new Point(re, im, Color.decode("#002921")));
+                else if( conv < 48)
+                    points.add(new Point(re, im, Color.decode("#00362c")));
                 else if (conv < 96)
-                    points.add(new Point(re, im, Color.decode("#52B8FF")));
+                    points.add(new Point(re, im, Color.decode("#004236")));
                 else if (conv < 112)
-                    points.add(new Point(re, im, Color.decode("#61FFD1")));
+                    points.add(new Point(re, im, Color.decode("#015445")));
                 else if (conv < 128)
-                    points.add(new Point(re, im, Color.decode("#43E6BD")));
+                    points.add(new Point(re, im, Color.decode("#01614f")));
                 else if (conv < 144)
-                    points.add(new Point(re, im, Color.decode("#35E647")));
+                    points.add(new Point(re, im, Color.decode("#00735d")));
                 else if (conv < 160)
-                    points.add(new Point(re, im, Color.decode("#C4E643")));
+                    points.add(new Point(re, im, Color.decode("#00876d")));
                 else if (conv < 176)
-                    points.add(new Point(re, im, Color.decode("#CEFF4A")));
+                    points.add(new Point(re, im, Color.decode("#009477")));
                 else if (conv < 192)
-                    points.add(new Point(re, im, Color.decode("#FFE13B")));
+                    points.add(new Point(re, im, Color.decode("#00a383")));
                 else if (conv < 208)
-                    points.add(new Point(re, im, Color.decode("#FFB44A")));
+                    points.add(new Point(re, im, Color.decode("#00c49d")));
                 else if (conv < 224)
-                    points.add(new Point(re, im, Color.decode("#F5B75B")));
+                    points.add(new Point(re, im, Color.decode("#02d9ae")));
                 else if (conv < 240)
-                    points.add(new Point(re, im, Color.decode("#F57A4C")));
+                    points.add(new Point(re, im, Color.decode("#05ffcd")));
                 else
-                    points.add(new Point(re, im, Color.decode("#FFFFFF")));
+                    points.add(new Point(re, im, Color.decode("#000000")));
             }
         }
         new Frame(1920, 1080, points);
