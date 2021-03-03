@@ -12,7 +12,7 @@ import GUI.Point;
 public class MandlebrotSet {
     private static final double UNIT = 420;
     private static ArrayList<Point> points = new ArrayList<>();
-    private static int val = 256;
+    private static int val = 255;
 
     public static void main(String[] args) {
         for (int re = -1000; re <= 1000; re++) {
