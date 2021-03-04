@@ -18,7 +18,7 @@ public class MandlebrotSet {
         for (int re = -1000; re <= 1000; re++) {
             for (int im = -1000; im <= 1000; im++) {
                 int conv = converges((new Complex(re / UNIT, im / UNIT)));
-                if (conv < 2)
+                /*if (conv < 2)
                     points.add(new Point(re, im, Color.decode("#0b0d21")));
                 else if (conv < 4)
                     points.add(new Point(re, im, Color.decode("#091636")));
@@ -26,14 +26,15 @@ public class MandlebrotSet {
                     points.add(new Point(re, im, Color.decode("#0f2561")));
                 else if (conv < 16)
                     points.add(new Point(re, im, Color.decode("#133080")));
-                else if( conv < 32)
+                else if (conv < 32)
                     points.add(new Point(re, im, Color.decode("#153eb0")));
                 else if (conv < 64)
                     points.add(new Point(re, im, Color.decode("#174cd6")));
                 else if (conv < 128)
                     points.add(new Point(re, im, Color.decode("#185afc")));
                 else
-                    points.add(new Point(re, im, Color.decode("#000000")));
+                    points.add(new Point(re, im, Color.decode("#000000")));*/
+                points.add(new Point(re, im, new Color(conv, conv, conv)));
             }
         }
         new Frame(1920, 1080, points);
@@ -43,7 +44,7 @@ public class MandlebrotSet {
         Complex zn = c;
         int steps = val;
         for (int i = 0; i < val; i++) {
-            zn = Complex.add(Complex.mul(zn, zn), c);
+            zn = Complex.add(Complex.mul(zn, zn), new Complex(-0.8, 0.156));
             if (zn.getAbs() >= 2) {
                 steps = i;
                 break;
